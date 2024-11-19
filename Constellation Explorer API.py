@@ -92,22 +92,10 @@ def update_constellation(name):
 
 # 8. For a constellation specified by name, view the image
 # You might have to use an image generator API - try https://imagepig.com/
+
 @app.route('/constellations/<name>/image', methods=['GET'])
 def get_constellation_image(name):
-    """Fetches an image of a constellation using the ImagePig API.
-
-    Args:
-        name (str): The name of the constellation.
-
-    Returns:
-        dict: A dictionary containing the image URL if successful,
-              or an error message with status code if not.
-
-    Raises:
-        requests.exceptions.RequestException: If the request fails.
-    """
-
-    api_url = "https://api.imagepig.com/v1/images"  # ImagePig API URL for image generation
+    api_url = "https://api.imagepig.com/v1/images"  # Updated URL for image generation
 
     api_key = "4de1176d-7ca1-4465-8d09-01908c3b9eb7"  # Replace with your actual API key
 
@@ -116,11 +104,16 @@ def get_constellation_image(name):
         if constellation["name"].lower() == name.lower():
             try:
                 # Make a request to the ImagePig API
-                response = requests.post(
+                response = requests.post(  # Changed GET to POST as per ImagePig documentation
                     api_url,
-                    json={"prompt": f"{name} constellation"},
+                    json={"prompt": f"{name} constellation"},  # Updated data format
                     headers={"Authorization": f"Bearer {api_key}"}
                 )
+
+                # Debugging logs (optional)
+                # print("Status Code:", response.status_code)
+                # print("Headers:", response.headers)
+                # print("Response Text:", response.text)
 
                 # Check the API response
                 if response.status_code == 200:
