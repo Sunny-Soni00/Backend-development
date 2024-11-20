@@ -62,7 +62,8 @@ API_BASE_URL = "https://api.github.com/user"
 def home():
     user_info = session.get('user_info')
     if user_info:
-        return '<a href="/login">Login with GitHub</a>'
+        return f'Hello, {user_info["login"]}! <a href="/logout">Logout</a>'
+    return '<a href="/login">Login with GitHub</a>'
 
 @app.route('/login')
 def login():
@@ -79,6 +80,12 @@ def callback():
 
     user_info = github.get(API_BASE_URL).json()
     session['user_info'] = user_info
+    return redirect(url_for('home'))
+
+@app.route('/logout')
+def logout():
+    session.pop('user_info', None)
+    session.pop('oauth_token', None)
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
