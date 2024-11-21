@@ -34,6 +34,8 @@ def get_constellation_by_name(name):
         for constellation in constellations:
             if constellation["name"].lower() == name.lower():
                 return jsonify(constellation)
+            
+        return jsonify({"error": "Constellation not found"}), 404
 
 # 3. Add a new constellation
 # POST /constellations, JSON body contains the constellation details
