@@ -52,8 +52,8 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 # GitHub OAuth configuration
-CLIENT_ID = 'Ov23liK54s5jfTtWXekq'
-CLIENT_SECRET = '112fb908f8d4f91caf39529cd2169f5c010024cc'
+CLIENT_ID = ''
+CLIENT_SECRET = ''
 AUTHORIZATION_BASE_URL = "https://github.com/login/oauth/authorize"
 TOKEN_URL = "https://github.com/login/oauth/access_token"
 API_BASE_URL = "https://api.github.com/user"
