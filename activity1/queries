@@ -1,0 +1,96 @@
+# Q1
+query {
+  books {
+    title
+    author
+  }
+}
+
+# Q2
+query {
+  members {
+    name
+    membershipType
+  }
+}
+
+# Q3
+query {
+  book(id: 2) {
+    title
+    author
+    publishedYear
+  }
+}
+
+# Q4
+mutation {
+  addBook(title: "Brave New World", author:"Aldous Huxley", publishedYear:1932) {
+    title
+    author
+    publishedYear
+  }
+  }
+}
+
+#Q5
+mutation {
+  updateMembership(id:2, membershipType:"Premium"){
+    id
+    name
+    email
+    membershipType
+  }
+
+# }
+
+# Q6
+query {
+    booksPublishedBefore1950 {
+        title
+        author
+    }
+}
+
+# Q7
+query {
+    premiumMembers {
+        name
+        membershipType
+    }
+}
+
+# Q8
+mutation {
+  addBook(title: "The Catcher in the Rye", author:"J.D. Salinger", publishedYear:1951) {
+    title
+    author
+    publishedYear
+  }
+}
+  query{ 
+    books{
+      title
+      author
+      publishedYear
+
+    }
+  }
+  }
+}
+
+# Q9
+mutation {
+  updateMembership(id:1, membershipType:"Basic"){
+    id
+    name
+    email
+    membershipType
+  }
+
+}
+
+# Q10
+  query {
+  BookDetails
+}
